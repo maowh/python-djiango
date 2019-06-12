@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>这个是从模板中渲染的字符串！</h1>
+{#    {{ persons.0 }}#}
+{#    {% if age < 18 %}#}
+{#        <p>您是未成年人，不能进入网吧！</p>#}
+{#    {% elif age == 18 %}#}
+{#        <p>您已满18岁，可以进入网吧！</p>#}
+{#    {% else %}#}
+{#        <p>您已经成年，可以进入网吧！</p>#}
+{#    {% endif %}#}
+{#{% if  '鲁班一号' in persons%}#}
+{#    <p>鲁班一号正在待命</p>#}
+{#    {% else %}#}
+{#    <p>鲁班一号正在休息</p>#}
+{#{% endif %}#}
+<ul>
+    {% for person in persons reversed %}
+        <li>{{ person }}</li>
+    {% endfor %}
+</ul>
+    <ul>
+        {% for key,value in book.items %}
+            <li>{{ key }}:{{ value }}</li>
+        {% endfor %}
+    </ul>
+
+<table>
+    <thead>
+    <tr>
+        <td>序号</td>
+        <td>书名</td>
+        <td>作者</td>
+        <td>价格</td>
+    </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+            {% if forloop.first %}
+                <tr style="background: coral">
+                {% elif forloop.last%}
+                <tr style="background: deepskyblue">
+                {% else %}
+                <tr>
+            {% endif %}
+        <td>{{ forloop.counter }}</td>
+        <td>{{ book.name }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<ul>
+{% for comment in comments %}
+<li>{{ comment }}</li>
+    {% empty %}
+    <li>还没有任何评论</li>
+{% endfor %}
+</ul>
+</body>
+</html>
