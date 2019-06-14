@@ -15,12 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-# from front import views
+from front import views_front
 from . import views
 
 
 urlpatterns = [
-    path('', views.index),
-    path('admin/', admin.site.urls)
-    # path('front/', views.index)
+    path('', views.index, name='index'),
+    path('book/', views.book, name='book'),
+    path('movie/', views.movie, name='movie'),
+    path('book/detail/<book_id>/<category>/', views.book_detail, name='book_detail'),
+    path('login/', views.login, name='login'),
+    path('add/', views.add_view, name='add'),
+    path('school/', views.school, name='school'),
+    path('company/', views.company, name='company'),
+    path('admin/', admin.site.urls),
+    path('front/', views_front.front, name='front')
 ]

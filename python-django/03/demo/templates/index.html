@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+
+{% extends 'base.html' %}
+{% block context %}
+    <p>{{ block.super }}</p>
+{#{% include 'header.html' %}#}
+
+
     <h1>这个是从模板中渲染的字符串！</h1>
 {#    {{ persons.0 }}#}
 {#    {% if age < 18 %}#}
@@ -19,6 +19,8 @@
 {#    {% else %}#}
 {#    <p>鲁班一号正在休息</p>#}
 {#{% endif %}#}
+
+
 <ul>
     {% for person in persons reversed %}
         <li>{{ person }}</li>
@@ -40,6 +42,8 @@
     </tr>
     </thead>
     <tbody>
+
+
         {% for book in books %}
             {% if forloop.first %}
                 <tr style="background: coral">
@@ -63,5 +67,8 @@
     <li>还没有任何评论</li>
 {% endfor %}
 </ul>
-</body>
-</html>
+
+<h1>模板过滤器</h1>
+<p>{{ greet }}</p>
+{#{% include 'footer.html' %}#}
+{% endblock %}

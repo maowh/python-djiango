@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # 加载静态文件
     'django.contrib.staticfiles',
     'front'
 ]
@@ -118,5 +119,5 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+# 在浏览器中请求静态文件
 STATIC_URL = '/static/'
