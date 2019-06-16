@@ -1,4 +1,4 @@
-"""demo URL Configuration
+"""dbdemo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -15,21 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from front import views_front
-from cms import views as views_cms
 from . import views
-
+from front import views as front_views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('book/', views.book, name='book'),
-    path('movie/', views.movie, name='movie'),
-    path('book/detail/<book_id>/<category>/', views.book_detail, name='book_detail'),
-    path('login/', views.login, name='login'),
-    path('add/', views.add_view, name='add'),
-    path('school/', views.school, name='school'),
-    path('company/', views.company, name='company'),
+    path('', front_views.index, name='index'),
+    path('add_book/', front_views.add_book, name='add_book'),
+    path('book_detail/', front_views.book_detail, name='book_detail'),
     path('admin/', admin.site.urls),
-    path('front/', views_front.front, name='front'),
-    path('cms/', views_cms.cms, name='cms')
 ]
+
