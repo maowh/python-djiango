@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+    <form action="{% url 'modify_book' %}" method="post">
+<p>学院编号：{{ collage.0 }}</p>
+          <p>学院名称：</p>
+      <input type="text" name="book_name" value="{{ collage.1 }}">
+        <input type="hidden" name="book_id" value="{{ collage.0 }}">
+        <input type="submit" value="修改图书">
+        </form>
+       <form action="{% url 'delete_book' %}" method="post">
+           <input type="hidden" name="book_id" value="{{ collage.0 }}">
+           <input type="submit" value="删除图书">
+       </form>
+{% endblock %}

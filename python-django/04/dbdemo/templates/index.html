@@ -14,7 +14,7 @@
         <tr>
             <td>{{ forloop.counter }}</td>
         <td>{{ collage.0 }}</td>
-        <td>{{ collage.1 }}</td>
+        <td><a href="{% url "book_detail" book_id=collage.0 %}">{{ collage.1 }}</a></td>
         </tr>
     {% endfor %}
 </tbody>

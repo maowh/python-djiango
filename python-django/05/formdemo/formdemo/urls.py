@@ -1,4 +1,4 @@
-"""dbdemo URL Configuration
+"""formdemo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -15,15 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
-from front import views as front_views
 
 urlpatterns = [
-    path('', front_views.index, name='index'),
-    path('add_book/', front_views.add_book, name='add_book'),
-    path('book_detail/<int:book_id>/', front_views.book_detail, name='book_detail'),
-    path('delete_book/', front_views.delete_book, name='delete_book'),
-    path('modify_book/', front_views.modify_book, name='modify_book'),
     path('admin/', admin.site.urls),
 ]
-
